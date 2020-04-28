@@ -1,0 +1,19 @@
+name: "Bashless Deploy"
+description: "Triggers deploy via SSH on remote servers. Multiple hosts, private key auth."
+author: "Mycelium"
+inputs:
+  command:
+    description: "Command(s) to execute on the remote server."
+    default: deploy
+  hosts:
+    description: "Hostname or IP address of the remote server(s). Separate multiple servers with a blank space. Example: 'user@mydomain.com:22 user@otherdomain.com:2222'"
+    required: true
+  privateKey:
+    description: "The private key (id_rsa) content for authenticating to the SSH server(s). Recommended to store it as a GitHub Secret."
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  color: "gray-dark"
+  icon: "terminal"
